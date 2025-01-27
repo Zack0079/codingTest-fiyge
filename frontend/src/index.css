@@ -11,3 +11,48 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.form-builder {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+.sidebar {
+  width: 200px;
+  background: #f4f4f4;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.sidebar-item {
+  padding: 10px;
+  background: white;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+  cursor: grab;
+}
+
+.sidebar-item.dragging {
+  opacity: 0.5;
+}
+
+.canvas {
+  flex: 1;
+  border: 2px dashed #ccc;
+  min-height: 400px;
+  padding: 10px;
+  background: #fafafa;
+}
+
+.canvas.hovered {
+  background: #e6f7ff;
+}
+
+.canvas-item {
+  padding: 10px;
+  margin-bottom: 10px;
+  background: white;
+  border: 1px solid #ccc;
+}
