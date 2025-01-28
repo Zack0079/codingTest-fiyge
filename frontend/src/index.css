@@ -56,3 +56,16 @@ code {
   background: white;
   border: 1px solid #ccc;
 }
+
+.padding-btn{
+  margin-left: 5px;
+
+}
+
+.form-labal {
+  margin-right: 10px;
+}
+
+.red {
+  color: red;
+}

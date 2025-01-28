@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import FormBuilder from './components/FormBuilder';
 import reportWebVitals from './reportWebVitals';
+import { library, config } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+library.add(fas); // Add all icons from the solid icon set
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
