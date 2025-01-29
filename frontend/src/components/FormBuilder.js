@@ -135,8 +135,9 @@ const FormBuilder = () => {
 
   // Handle dropping a new component onto the canvas
   const handleDrop = useCallback(component => {
-    const newComponent = {
-      ...component,
+    const newComponent = 
+    {
+      ...JSON.parse(JSON.stringify(component)),
       id: `${component.type}-${Date.now()}`, // Assign a unique ID to the new component
     };
     console.log("canvasComponents:", canvasComponents)

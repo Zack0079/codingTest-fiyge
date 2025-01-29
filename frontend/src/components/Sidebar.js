@@ -69,35 +69,40 @@ const Sidebar = () => {
     }
 
     const handleOptionsArr = (index, action) => {
-        console.log("sidebarComponents", sidebarComponents)
         const updatedComponents = [...sidebarComponents];
 
         action ?
             updatedComponents[index].optionsArr.push("") :
             updatedComponents[index].optionsArr.pop()
         setSidebarComponents(updatedComponents)
+
+        // console.log("sidebarComponents", sidebarComponents)
     }
 
-    const handleSingleCheckBox = (index, value) => {
-        console.log("sidebarComponents", sidebarComponents)
+    const handleCheckBox = (index, value, attr) => {
         const updatedComponents = [...sidebarComponents];
 
-        updatedComponents[index].single = value;
+        updatedComponents[index][attr] = value;
+        console.log("test:", updatedComponents[index][attr]);
         setSidebarComponents(updatedComponents)
+
+        // console.log("sidebarComponents", sidebarComponents)
     }
 
     const handleDetail = (component) => {
 
         let name = component.type;
+        // console.log("sidebarComponents", sidebarComponents)
+        // console.log("component.required", component.required)
 
         let labelInput = (<input type="text" placeholder="label" defaultValue={component.label} onChange={e => component.label = e.target.value} />)
-        let requiredInput = (<>
+        let requiredInput = (<div>
             <label>Required</label>
-            <input type="checkBox" defaultValue={component.required} onChange={() => {
-                component.required = !component.required
+            <input type="checkBox" defaultChecked={component.required} onChange={() => {
+                handleCheckBox(component.type_id - 1, !component.required, 'required')
             }} />
 
-        </>)
+        </div>)
 
 
         let placeholderInput = (name === "Text Input" || name === "Text Area") ?
@@ -108,7 +113,7 @@ const Sidebar = () => {
 
         let OptionsInput = null;
 
-        if (name === "Checkbox" || name === "Select Dropdown" || name === "Radio Buttons") {
+        if (name === "Select Dropdown" || name === "Radio Buttons") {
             // let index = 2;
             OptionsInput = (
                 <div>
@@ -128,7 +133,7 @@ const Sidebar = () => {
 
             OptionsInput = (
                 <>
-                    <div onClick={() => handleSingleCheckBox(component.type_id-1, !component.single)}>
+                    <div onClick={() => handleCheckBox(component.type_id - 1, !component.single, 'single')}>
                         <label>Single Box</label>
                         <input type="checkBox" defaultChecked={component.single} />
                     </div>
